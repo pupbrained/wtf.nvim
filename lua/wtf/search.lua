@@ -57,8 +57,16 @@ local search = function(search_engine)
   local search_url = selected_search_engine .. search_string
 
   local open_command = get_open_command()
+  
+  function urlEncode(str)
+    str = string.gsub(str, ""([^%w%.%- ])"", function(c)
+      return string.format(""%%%02X"", string.byte(c))
+    end)
+    str = string.gsub(str, "" "", ""+"")
+    return str
+  end
 
-  local command = open_command .. " " .. '"' .. search_url .. '"'
+  local command = open_command .. " " .. '"' .. urlEncode(search_url) .. '"'
 
   vim.notify(command)
 
