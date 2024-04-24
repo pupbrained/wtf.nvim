@@ -6,6 +6,7 @@ M.sources = {
   google = "https://www.google.com/search?q=",
   perplexity = "https://www.perplexity.ai/search?q=",
   phind = "https://www.phind.com/search?q=",
+  kagi = "https://kagi.com/search?q=",
   stack_overflow = "https://stackoverflow.com/search?q=",
 }
 
