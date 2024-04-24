@@ -54,10 +54,6 @@ local search = function(search_engine)
 
   local search_string = programming_language .. " " .. first_diagnostic.severity .. " " .. clean_message
 
-  local search_url = selected_search_engine .. search_string
-
-  local open_command = get_open_command()
-  
   function urlEncode(str)
     str = string.gsub(str, "([^%w%.%- ])", function(c)
       return string.format("%%%02X", string.byte(c))
@@ -65,8 +61,12 @@ local search = function(search_engine)
     str = string.gsub(str, " ", "+")
     return str
   end
+  
+  local search_url = selected_search_engine .. urlEncode(search_string)
 
-  local command = open_command .. " " .. '"' .. urlEncode(search_url) .. '"'
+  local open_command = get_open_command()
+
+  local command = open_command .. " " .. '"' .. search_url .. '"'
 
   vim.notify(command)
 
