@@ -110,7 +110,7 @@ function M.request(messages, callback, callbackTable)
   if isWindows ~= true then
     -- Linux
     curlRequest = string.format(
-      'curl -s https://api.openai.com/v1/chat/completions -H "Content-Type: application/json" -H "Authorization: Bearer '
+      'curl -s http://localhost:3040/v1/chat/completions -H "Content-Type: application/json" -H "Authorization: Bearer '
         .. api_key
         .. '" --data-binary "@'
         .. tempFilePathEscaped
@@ -121,7 +121,7 @@ function M.request(messages, callback, callbackTable)
   else
     -- Windows
     curlRequest = string.format(
-      'curl -s https://api.openai.com/v1/chat/completions -H "Content-Type: application/json" -H "Authorization: Bearer '
+      'curl -s http://localhost:3040/v1/chat/completions -H "Content-Type: application/json" -H "Authorization: Bearer '
         .. api_key
         .. '" --data-binary "@'
         .. tempFilePathEscaped
