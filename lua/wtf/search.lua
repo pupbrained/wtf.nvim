@@ -60,6 +60,8 @@ local search = function(search_engine)
 
   local command = open_command .. " " .. '"' .. search_url .. '"'
 
+  vim.notify(command)
+
   -- Open the URL using the appropriate command
   return vim.fn.system(command)
 end
